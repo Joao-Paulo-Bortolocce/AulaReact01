@@ -15,7 +15,7 @@ export default class Data extends Component{
     }
 
     componentDidUpdate(){
-        console.log("O compontente foi atualizado");
+        console.log("O compontente foi atualizado.");
     }
 
     //Sobrescrita de método
