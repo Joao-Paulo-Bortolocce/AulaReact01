@@ -1,4 +1,4 @@
-import Data from './meusCOmponentes/Data.js';
+import Data from './meusComponentes/Data.js';
 
 function App() {
   return (
