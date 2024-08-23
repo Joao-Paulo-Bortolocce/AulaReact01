@@ -9,10 +9,20 @@ export default class Data extends Component{
             dataAtual : new Date().toLocaleString()
         }
     }
+
+    pegaDataDe(TimeZone){
+        const dataAtual = new Date();
+        let timeZoneFromDb = parseInt(TimeZone);
+        let diferencaTempo= timeZoneFromDb *60 +dataAtual.getTimezoneOffset();
+        let milisegundos =parseInt(dataAtual.getTime() + (diferencaTempo *60 *100));
+        const data = new Date(milisegundos);
+        return data;
+    }
     
     //fase de montagem
     componentDidMount(){
         console.log("O componente foi montado.");
+
         //Não é permitido atualizar o estado componente de forma direta "this.state=.."
         this.setState({
             dataAtual: new Date().toLocaleString()
@@ -23,8 +33,9 @@ export default class Data extends Component{
         console.log("O compontente foi atualizado.");
         setTimeout(()=>{
             this.setState ( {
-                dataAtual : new Date().toLocaleString()
-            })
+                //dataAtual : new Date().toLocaleString()
+                dataAtual: this.pegaDataDe(this.props.timeZone).toLocaleString()
+            });
         },1000);
     }
 
