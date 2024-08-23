@@ -10,11 +10,11 @@ export default class Data extends Component{
         }
     }
 
-    pegaDataDe(TimeZone){
+    pegaDataDe(timeZone){
         const dataAtual = new Date();
-        let timeZoneFromDb = parseInt(TimeZone);
+        let timeZoneFromDb = parseInt(timeZone);
         let diferencaTempo= timeZoneFromDb *60 +dataAtual.getTimezoneOffset();
-        let milisegundos =parseInt(dataAtual.getTime() + (diferencaTempo *60 *100));
+        let milisegundos =parseInt(dataAtual.getTime() + (diferencaTempo *60 *1000));
         const data = new Date(milisegundos);
         return data;
     }
